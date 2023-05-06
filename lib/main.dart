@@ -1,6 +1,7 @@
 import 'package:easy_book/core/utils/app_routter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,9 +20,11 @@ class MyApp extends StatelessWidget {
         return MaterialApp.router(
           routerConfig: RouterApp.router,
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(
+          theme: ThemeData.light().copyWith(
             useMaterial3: true,
-            scaffoldBackgroundColor: const Color(0xffE5E5E5),
+            scaffoldBackgroundColor: const Color(0xffffffff),
+            textTheme:
+                GoogleFonts.baiJamjureeTextTheme(ThemeData.light().textTheme),
           ),
         );
       },
