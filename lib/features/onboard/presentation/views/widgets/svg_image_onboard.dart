@@ -9,15 +9,15 @@ class SvgImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SvgPicture.asset(
-          'assets/images/_358334872.svg',
-          width: 437.w,
-          height: 498.92.h,
-        ),
-        SvgPicture.asset(
-          'assets/images/Vector 2.svg',
-          width: 395.5.w,
-        ),
+        // SvgPicture.asset(
+        //   'assets/images/_358334872.svg',
+        //   width: 437.w,
+        //   height: 498.92.h,
+        // ),
+        // SvgPicture.asset(
+        //   'assets/images/Vector 2.svg',
+        //   width: 395.5.w,
+        // ),
       ],
     );
   }

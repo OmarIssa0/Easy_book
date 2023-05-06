@@ -15,11 +15,11 @@ class PageViewTowOnboard extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 18, horizontal: 6),
           child: AppBarOnboard(),
         ),
-        SvgPicture.asset(
-          'assets/images/_476871824.svg',
-          width: 491.w,
-          height: 564.73.h,
-        ),
+        // SvgPicture.asset(
+        //   'assets/images/_476871824.svg',
+        //   width: 491.w,
+        //   height: 564.73.h,
+        // ),
         SizedBox(
           height: 42.27.h,
         ),

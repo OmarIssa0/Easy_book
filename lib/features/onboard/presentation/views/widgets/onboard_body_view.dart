@@ -34,17 +34,17 @@ class PageViewThreeOnboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SvgPicture.asset(
-          'assets/images/Vector 1.svg',
-          fit: BoxFit.fill,
-        ),
+        // SvgPicture.asset(
+        //   'assets/images/Vector 1.svg',
+        //   fit: BoxFit.fill,
+        // ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(
               height: 24.h,
             ),
-            SvgPicture.asset('assets/images/Group 5.svg'),
+            // SvgPicture.asset('assets/images/Group 5.svg'),
             Column(
               children: [
                 Row(
