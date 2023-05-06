@@ -1,3 +1,4 @@
+import 'package:easy_book/core/utils/assets.dart';
 import 'package:easy_book/core/utils/styles.dart';
 import 'package:easy_book/features/onboard/presentation/views/widgets/app_bar_onboard.dart';
 import 'package:flutter/material.dart';
@@ -15,11 +16,11 @@ class PageViewTowOnboard extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 18, horizontal: 6),
           child: AppBarOnboard(),
         ),
-        // SvgPicture.asset(
-        //   'assets/images/_476871824.svg',
-        //   width: 491.w,
-        //   height: 564.73.h,
-        // ),
+        SvgPicture.asset(
+          AssetsImage.kImageOnboardTow,
+          width: 491.w,
+          height: 564.73.h,
+        ),
         SizedBox(
           height: 42.27.h,
         ),

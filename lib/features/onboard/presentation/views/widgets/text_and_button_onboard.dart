@@ -1,6 +1,10 @@
+import 'package:easy_book/core/utils/app_routter.dart';
 import 'package:easy_book/core/utils/styles.dart';
+import 'package:easy_book/features/onboard/presentation/views/widgets/custom_button_app.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class TextAndButtonOnboardThree extends StatelessWidget {
   const TextAndButtonOnboardThree({
@@ -35,21 +39,7 @@ class TextAndButtonOnboardThree extends StatelessWidget {
             SizedBox(
               height: 33.h,
             ),
-            Container(
-              width: 230,
-              height: 55,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(11.r),
-                color: const Color(0xffDE7773),
-              ),
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  'Get Started Now',
-                  style: Styles.kTextStyle14.copyWith(color: Colors.white),
-                ),
-              ),
-            ),
+            const CustomButtonApp(),
           ],
         ),
       ),
