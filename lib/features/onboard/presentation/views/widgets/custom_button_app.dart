@@ -51,7 +51,7 @@ class _CustomButtonAppState extends State<CustomButtonApp> {
         ),
         onPressed: () {
           savePref('login');
-          // GoRouter.of(context).push(RouterApp.kHomeView);
+          GoRouter.of(context).push(RouterApp.kHomeView);
         },
         child: Text(
           'Get Started Now',

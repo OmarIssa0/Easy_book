@@ -1,10 +1,7 @@
-import 'package:easy_book/core/utils/app_routter.dart';
 import 'package:easy_book/core/utils/assets.dart';
-import 'package:easy_book/features/home/presentation/views/home_view.dart';
 import 'package:easy_book/features/onboard/presentation/views/onboard_views.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
