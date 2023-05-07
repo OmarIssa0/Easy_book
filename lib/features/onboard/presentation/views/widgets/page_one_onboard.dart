@@ -1,3 +1,4 @@
+import 'package:easy_book/core/utils/color_app.dart';
 import 'package:easy_book/core/utils/styles.dart';
 import 'package:easy_book/features/onboard/presentation/views/widgets/app_bar_onboard.dart';
 import 'package:easy_book/features/onboard/presentation/views/widgets/svg_image_onboard.dart';

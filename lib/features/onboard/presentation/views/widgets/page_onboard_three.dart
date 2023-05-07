@@ -26,7 +26,7 @@ class PageViewThreeOnboard extends StatelessWidget {
             SizedBox(
               height: 36.h,
             ),
-            const TextAndButtonOnboardThree()
+            const TextAndButtonOnboardThree(),
           ],
         ),
       ],
