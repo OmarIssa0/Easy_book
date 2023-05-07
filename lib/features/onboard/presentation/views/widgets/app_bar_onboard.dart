@@ -15,10 +15,10 @@ class AppBarOnboard extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.keyboard_backspace,
             color: ColorApp.kColorIcon,
-            size: 25.sp,
+            size: 25,
           ),
         ),
         TextButton(
@@ -27,6 +27,7 @@ class AppBarOnboard extends StatelessWidget {
             'Skip',
             style: Styles.kTextStyle16.copyWith(
               color: ColorApp.kColorText,
+              
             ),
           ),
         ),
