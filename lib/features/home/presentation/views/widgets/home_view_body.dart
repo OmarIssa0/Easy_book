@@ -1,9 +1,9 @@
-import 'dart:ffi';
-
 import 'package:easy_book/core/utils/assets.dart';
 import 'package:easy_book/core/utils/color_app.dart';
 import 'package:easy_book/core/utils/styles.dart';
+import 'package:easy_book/features/home/presentation/views/widgets/card_item.dart';
 import 'package:easy_book/features/home/presentation/views/widgets/custom_app_bar.dart';
+import 'package:easy_book/features/home/presentation/views/widgets/list_view_recommanded.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,255 +13,198 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SvgPicture.asset(
-          AssetsImage.kBackgroundOnboardThree,
-          fit: BoxFit.fill,
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
+      slivers: [
+        SliverToBoxAdapter(
+          child: Stack(
             children: [
-              const CustomAppBarHomeView(),
-              const CardCustom(),
-              SizedBox(
-                height: 45.h,
+              SvgPicture.asset(
+                AssetsImage.kBackgroundOnboardThree,
+                fit: BoxFit.fill,
               ),
-              Text(
-                'Recommanded for you',
-                style: Styles.kTextStyle20,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const CustomAppBarHomeView(),
+                    const CardCustom(),
+                    SizedBox(
+                      height: 45.h,
+                    ),
+                    Text(
+                      'Recommanded for you',
+                      style: Styles.kTextStyle20,
+                    ),
+                    const ListViewRecommanded(),
+                    SizedBox(
+                      height: 100.h,
+                    ),
+                    Text(
+                      'Popular books',
+                      style: Styles.kTextStyle20,
+                    ),
+                    // ListViewPopularBook(),
+                  ],
+                ),
               ),
             ],
           ),
+        ),
+        SliverToBoxAdapter(
+          child: TestListView(),
         ),
       ],
     );
   }
 }
 
-class CardCustom extends StatelessWidget {
-  const CardCustom({super.key});
+class ListViewPopularBook extends StatelessWidget {
+  const ListViewPopularBook({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 10,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Container(
-        height: 200.h,
-        width: 388.w,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: Colors.white,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      child: Material(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
         ),
-        child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
-              child: Material(
-                elevation: 10,
-                child: Image.asset('assets/images/Test_book.jpg'),
-              ),
-            ),
-            SizedBox(
-              width: 226.w,
-              // height: 112.h,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 30,
+        elevation: 5,
+        child: Container(
+          height: 116.h,
+          width: 388.w,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.white,
+          ),
+          child: Row(
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                child: Image.asset(
+                  'assets/images/product_cm3yDQc2KdBpIadKmwNGTQ0UaAXHeb.jpg',
+                  width: 65,
+                  height: 86,
                 ),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.height * .17,
+                height: 68.h,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'The Psychology of Money',
+                      'The Steal Like An Artist',
                       style: Styles.kTextStyle14.copyWith(
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
+                        color: ColorApp.kColorText,
+                        fontSize: 12.sp,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
                     Text(
-                      "The psychology of money is the study of our behavior with money. Success with money isn't about knowledge, IQ or how good you are at math. It's about behavior, and everyone is prone to certain behaviors over others.",
-                      style: Styles.kTextStyle8,
-                    ),
-                    SizedBox(
-                      height: 12.h,
+                      'Austin Kleon',
+                      style: Styles.kTextStyle10.copyWith(
+                        color: ColorApp.kColorText,
+                      ),
                     ),
                     Row(
                       children: [
-                        Container(
-                          width: 87,
-                          height: 26,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: const Color(0xffDE7773),
+                        Text(
+                          "5.0",
+                          style: Styles.kTextStyle8.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: const Color(0xffF24F09),
                           ),
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Center(
-                              child: Text(
-                                'Grab Now',
-                                style: Styles.kTextStyle8.copyWith(
-                                  fontSize: 10,
-                                  color: Colors.white,
-                                ),
+                        ),
+                        Text(
+                          "| Based on 23k Reviews",
+                          style: Styles.kTextStyle8.copyWith(
+                            fontWeight: FontWeight.w100,
+                            color: ColorApp.kColorText,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      r'$45.87',
+                      style: Styles.kTextStyle10,
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 24),
+                      child: Container(
+                        width: 78,
+                        height: 26,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: const Color(0xffDE7773),
+                        ),
+                        child: TextButton(
+                          onPressed: () {},
+                          child: Center(
+                            child: Text(
+                              'Grab Now',
+                              style: Styles.kTextStyle8.copyWith(
+                                fontSize: 10,
+                                color: Colors.white,
                               ),
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          width: 15,
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Learn More',
-                            style: Styles.kTextStyle8.copyWith(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w700,
-                              color: ColorApp.kColorText,
-                            ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Learn More',
+                          style: Styles.kTextStyle8.copyWith(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w700,
+                            color: ColorApp.kColorText,
                           ),
                         ),
-                      ],
-                    )
+                      ),
+                    ),
                   ],
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-// class ItemBook extends StatelessWidget {
-//   const ItemBook({super.key});
+class TestListView extends StatelessWidget {
+  const TestListView({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       // color: Colors.red,
-//       width: double.infinity,
-//       height: 183.h,
-//       // decoration: BoxDecoration(
-//       //   borderRadius: BorderRadius.circular(15),
-//       // ),
-//       child: ListTile(
-//         leading: Image.asset(
-//           'assets/images/Test_book.jpg',
-//           height: 300,
-//           width: 90.w,
-//         ),
-//         shape: RoundedRectangleBorder(
-//           borderRadius: BorderRadius.circular(20),
-//           side: const BorderSide(
-//             color: Colors.black,
-//           ),
-//         ),
-//         title: Text(
-//           'The Psychology of Money',
-//           style: Styles.kTextStyle14.copyWith(
-//             fontWeight: FontWeight.w600,
-//           ),
-//         ),
-//         subtitle: Column(
-//           children: [
-//             Text(
-//               "The psychology of money is the study of our behavior with money. Success with money isn't about knowledge, IQ or how good you are at math. It's about behavior, and everyone is prone to certain behaviors over others.",
-//               style: Styles.kTextStyle8,
-//             ),
-//             TextButton(
-//               onPressed: () {},
-//               child: const Text('Grab Now'),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-
-// class PageViewTest extends StatefulWidget {
-//   const PageViewTest({super.key});
-
-//   @override
-//   State<PageViewTest> createState() => _PageViewTestState();
-// }
-
-// class _PageViewTestState extends State<PageViewTest> {
-//   final PageController _controller = PageController();
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: [
-//         Container(
-//           height: 180.h,
-//           width: double.infinity,
-//           child: PageView(
-//             controller: _controller,
-//             children: [
-//               Container(
-//                 // color: Colors.red,
-//                 child: Padding(
-//                   padding: const EdgeInsets.symmetric(horizontal: 16),
-//                   child: Row(
-//                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                     children: [
-//                       Image.asset(
-//                         'assets/images/Test_book.jpg',
-//                         height: 190.h,
-//                         width: 98.w,
-//                       ),
-//                       Image.asset(
-//                         'assets/images/Test_book.jpg',
-//                         height: 190.h,
-//                         width: 98.w,
-//                       ),
-//                       Image.asset(
-//                         'assets/images/Test_book.jpg',
-//                         height: 190.h,
-//                         width: 98.w,
-//                       ),
-//                       Image.asset(
-//                         'assets/images/Test_book.jpg',
-//                         height: 190.h,
-//                         width: 98.w,
-//                       ),
-//                       // Image.asset(
-//                       //   'assets/images/Test_book.jpg',
-//                       //   height: 400.h,
-//                       //   width: 98.w,
-//                       // ),
-//                       // Image.asset(
-//                       //   'assets/images/Test_book.jpg',
-//                       //   height: 400.h,
-//                       //   width: 98.w,
-//                       // ),
-//                     ],
-//                   ),
-//                 ),
-//               ),
-//               Container(
-//                 color: Color.fromARGB(255, 164, 164, 164),
-//               ),
-//               Container(
-//                 color: Colors.red,
-//               ),
-//             ],
-//           ),
-//         ),
-//         SmoothPageIndicator(controller: _controller, count: 3)
-//       ],
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      itemCount: 20,
+      scrollDirection: Axis.vertical,
+      itemBuilder: (context, index) {
+        return const ListViewPopularBook();
+      },
+    );
+  }
+}
