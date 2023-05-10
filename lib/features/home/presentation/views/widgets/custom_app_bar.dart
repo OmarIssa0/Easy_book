@@ -3,7 +3,11 @@ import 'package:easy_book/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBarHomeView extends StatelessWidget {
-  const CustomAppBarHomeView({super.key});
+  const CustomAppBarHomeView(
+      {super.key, required this.text, required this.color});
+
+  final String text;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -14,22 +18,22 @@ class CustomAppBarHomeView extends StatelessWidget {
         children: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(
+            icon: Icon(
               Icons.keyboard_backspace,
-              color: ColorApp.kColorIcon,
               size: 25,
+              color: color,
             ),
           ),
           Text(
-            'Book of The week',
+            text,
             style: Styles.kTextStyle20,
           ),
           IconButton(
             onPressed: () {},
-            icon: const Icon(
+            icon: Icon(
               Icons.menu,
               size: 25,
-              color: ColorApp.kColorIcon,
+              color: color,
             ),
           ),
         ],
