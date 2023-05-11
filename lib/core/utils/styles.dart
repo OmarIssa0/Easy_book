@@ -10,6 +10,10 @@ abstract class Styles {
     fontSize: 20.sp,
     fontWeight: FontWeight.w700,
   );
+  static final kTextStyle18 = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w600,
+  );
   static final kTextStyle16 = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeight.w400,

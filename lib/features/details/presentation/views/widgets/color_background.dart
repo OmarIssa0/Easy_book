@@ -10,10 +10,10 @@ class ColorBackground extends StatelessWidget {
     return Container(
       height: 304.h,
       width: 428.w,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(15),
-          bottomRight: Radius.circular(15),
+          bottomLeft: Radius.circular(15.r),
+          bottomRight: Radius.circular(15.r),
         ),
         color: ColorApp.kColorBackground,
       ),
