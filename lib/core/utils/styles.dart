@@ -13,6 +13,7 @@ abstract class Styles {
   static final kTextStyle18 = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeight.w600,
+    color: const Color(0xff4D506C),
   );
   static final kTextStyle16 = TextStyle(
     fontSize: 16.sp,

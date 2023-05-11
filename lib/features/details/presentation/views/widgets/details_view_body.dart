@@ -1,6 +1,7 @@
 import 'package:easy_book/core/utils/color_app.dart';
 import 'package:easy_book/core/utils/styles.dart';
 import 'package:easy_book/features/details/presentation/views/widgets/color_background.dart';
+import 'package:easy_book/features/details/presentation/views/widgets/info_book.dart';
 import 'package:easy_book/features/details/presentation/views/widgets/info_writing.dart';
 import 'package:easy_book/features/details/presentation/views/widgets/item_card_details.dart';
 import 'package:easy_book/features/home/presentation/views/widgets/custom_app_bar.dart';
@@ -18,15 +19,19 @@ class DetailsViewBody extends StatelessWidget {
         const ColorBackground(),
         Column(
           children: [
-            CustomAppBarHomeView(
+            const CustomAppBarHomeView(
               text: '',
               color: Colors.white,
             ),
-            ItemImageDetailsView(),
+            const ItemImageDetailsView(),
             SizedBox(
               height: 29.h,
             ),
-            InfoWriting(),
+            const InfoWriting(),
+            SizedBox(
+              height: 48.h,
+            ),
+            InfoBook(),
           ],
         ),
       ],
