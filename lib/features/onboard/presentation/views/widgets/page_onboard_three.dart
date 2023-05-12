@@ -10,6 +10,7 @@ class PageViewThreeOnboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      fit: StackFit.expand,
       children: [
         SvgPicture.asset(
           AssetsImage.kBackgroundOnboardThree,
@@ -22,7 +23,12 @@ class PageViewThreeOnboard extends StatelessWidget {
               height: 24.h,
             ),
             SvgPicture.asset(AssetsImage.kLogoBookOnboardThree),
-            Image.asset('assets/images/Screen_2_test-removebg-preview (1).png'),
+            Image.asset(
+              'assets/images/Screen_2_test-removebg-preview (1).png',
+              height: 550.h,
+              // width: double.infinity,
+              fit: BoxFit.fill,
+            ),
             SizedBox(
               height: 36.h,
             ),

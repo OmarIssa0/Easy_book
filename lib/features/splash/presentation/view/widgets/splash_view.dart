@@ -1,4 +1,5 @@
 import 'package:easy_book/core/utils/assets.dart';
+import 'package:easy_book/features/home/presentation/views/home_view.dart';
 import 'package:easy_book/features/onboard/presentation/views/onboard_views.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -56,7 +57,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
         }
 
         // GoRouter.of(context).push(_createRoute());
-        Navigator.of(context).push(_createRoute());
+        // Navigator.of(context).push(
+        //   _createRoute(),
+        // );
+        Navigator.of(context)
+            .pushAndRemoveUntil(_createRoute(), (route) => route.isFirst);
       },
     );
   }

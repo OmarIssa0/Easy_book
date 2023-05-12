@@ -1,4 +1,5 @@
 import 'package:easy_book/core/utils/app_routter.dart';
+import 'package:easy_book/features/home/presentation/views/home_view.dart';
 import 'package:easy_book/features/onboard/presentation/views/widgets/page_onboard_three.dart';
 import 'package:easy_book/features/onboard/presentation/views/widgets/page_one_onboard.dart';
 import 'package:easy_book/features/onboard/presentation/views/widgets/page_tow_onboard.dart';
@@ -21,7 +22,12 @@ class _OnboardViewsBodyState extends State<OnboardViewsBody> {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     var login = preferences.getString("login");
     if (login != null) {
-      GoRouter.of(context).push(RouterApp.kHomeView);
+      // GoRouter.of(context).push(RouterApp.kHomeView);
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(
+            builder: (context) =>const HomeView(),
+          ),
+          (route) => route.isFirst);
     }
   }
 

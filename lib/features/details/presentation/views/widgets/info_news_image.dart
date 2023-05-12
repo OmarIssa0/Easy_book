@@ -18,7 +18,9 @@ class InfoNewsImage extends StatelessWidget {
         SizedBox(
           height: 20.h,
         ),
-        SvgPicture.asset('assets/images/Image_news.svg')
+        SvgPicture.asset(
+          'assets/images/Image_news.svg',
+        )
       ],
     );
   }

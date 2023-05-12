@@ -20,6 +20,7 @@ class HomeViewBody extends StatelessWidget {
       slivers: [
         SliverToBoxAdapter(
           child: Stack(
+            fit: StackFit.passthrough,
             children: [
               SvgPicture.asset(
                 AssetsImage.kBackgroundOnboardThree,
