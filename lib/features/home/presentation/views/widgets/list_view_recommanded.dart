@@ -1,4 +1,6 @@
+import 'package:easy_book/core/utils/app_routter.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ListViewRecommanded extends StatelessWidget {
   const ListViewRecommanded({super.key});
@@ -27,10 +29,15 @@ class ItemBuilderRecommanded extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      'assets/images/product_cm3yDQc2KdBpIadKmwNGTQ0UaAXHeb.jpg',
-      width: 100,
-      height: 150,
+    return GestureDetector(
+      onTap: () {
+        GoRouter.of(context).push(RouterApp.kDetailsView);
+      },
+      child: Image.asset(
+        'assets/images/product_cm3yDQc2KdBpIadKmwNGTQ0UaAXHeb.jpg',
+        width: 100,
+        height: 150,
+      ),
     );
   }
 }

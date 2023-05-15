@@ -102,11 +102,12 @@ class ListViewPopularBook extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 24),
                         child: Container(
-                          width: 78,
-                          height: 26,
+                          width: 78.w,
+                          height: 30.h,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
-                            color: const Color(0xffDE7773),
+                            // color: const Color(0xffDE7773),
+                            color: ColorApp.kColorBackground,
                           ),
                           child: TextButton(
                             onPressed: () {},

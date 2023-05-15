@@ -26,17 +26,18 @@ class InfoWriting extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(
-                top: 20,
-                bottom: 20,
-                left: 20,
+                top: 15,
+                bottom: 15,
+                left: 15,
                 right: 16,
               ),
               child: CircleAvatar(
-                radius: 24,
+                backgroundColor: Colors.white,
+                radius: 34,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(50),
                   child: Image.asset(
-                    'assets/images/person_image.png',
+                    'assets/images/undraw_Male_avatar_g98d__2_-removebg.png',
                     // width: 56.w,
                     // height: 56.h,
                   ),
