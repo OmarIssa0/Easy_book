@@ -6,6 +6,5 @@ class AssetsImage {
   static const kImageOnboardTow = 'assets/images/image_onboard_tow.svg';
   static const kBackgroundOnboardThree =
       'assets/images/background_onboard_three.svg';
-  static const kLogoBookOnboardThree =
-      'assets/images/logo_book.svg';
+  static const kLogoBookOnboardThree = 'assets/images/logo_book.svg';
 }

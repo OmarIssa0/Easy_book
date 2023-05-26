@@ -27,7 +27,6 @@ class AppBarOnboard extends StatelessWidget {
             'Skip',
             style: Styles.kTextStyle16.copyWith(
               color: ColorApp.kColorText,
-              
             ),
           ),
         ),

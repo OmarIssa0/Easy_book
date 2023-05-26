@@ -25,7 +25,7 @@ class _OnboardViewsBodyState extends State<OnboardViewsBody> {
       // GoRouter.of(context).push(RouterApp.kHomeView);
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(
-            builder: (context) =>const HomeView(),
+            builder: (context) => const HomeView(),
           ),
           (route) => route.isFirst);
     }
