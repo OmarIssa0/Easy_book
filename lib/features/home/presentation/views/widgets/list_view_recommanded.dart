@@ -1,5 +1,10 @@
 import 'package:easy_book/core/utils/app_routter.dart';
+import 'package:easy_book/core/utils/widgets/custom_error_widget.dart';
+import 'package:easy_book/core/utils/widgets/custom_loading_indicator.dart';
+import 'package:easy_book/features/home/data/models/book_model/book_model.dart';
+import 'package:easy_book/features/home/presentation/manger/featured_books_cubit/featured_books_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class ListViewRecommanded extends StatelessWidget {
@@ -7,25 +12,38 @@ class ListViewRecommanded extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * .21,
-      child: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8),
-            child: ItemBuilderRecommanded(),
-          );
-        },
-        itemCount: 10,
-      ),
-    );
+    return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
+        builder: (context, state) {
+      if (state is FeaturedBooksSuccess) {
+        return SizedBox(
+          height: MediaQuery.of(context).size.height * .21,
+          child: ListView.builder(
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: ItemBuilderRecommanded(
+                    imageUrl:
+                        state.books[index].volumeInfo!.imageLinks!.thumbnail!),
+              );
+            },
+            itemCount: state.books.length,
+          ),
+        );
+      } else if (state is FeaturedBooksFailure) {
+        return CustomErrorWidget(errMessage: state.errMessage);
+      } else {
+        return const CustomLoadingIndicator();
+      }
+    });
   }
 }
 
 class ItemBuilderRecommanded extends StatelessWidget {
-  const ItemBuilderRecommanded({super.key});
+  const ItemBuilderRecommanded({super.key, required this.imageUrl});
+
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +51,19 @@ class ItemBuilderRecommanded extends StatelessWidget {
       onTap: () {
         GoRouter.of(context).push(RouterApp.kDetailsView);
       },
-      child: Image.asset(
-        'assets/images/product_cm3yDQc2KdBpIadKmwNGTQ0UaAXHeb.jpg',
-        width: 100,
-        height: 150,
+      child: AspectRatio(
+        aspectRatio: 2.6 / 3.5,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: NetworkImage(
+                imageUrl,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

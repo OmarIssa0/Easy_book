@@ -5,6 +5,8 @@ abstract class FeaturedBooksState extends Equatable {
 
   @override
   List<Object> get props => [];
+
+  get errMessage => null;
 }
 
 class FeaturedBooksInitial extends FeaturedBooksState {}

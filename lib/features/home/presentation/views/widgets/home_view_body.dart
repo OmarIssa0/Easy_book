@@ -43,6 +43,9 @@ class HomeViewBody extends StatelessWidget {
                       'Recommanded for you',
                       style: Styles.kTextStyle20,
                     ),
+                    SizedBox(
+                      height: 24.h,
+                    ),
                     const ListViewRecommanded(),
                     SizedBox(
                       height: 100.h,
