@@ -54,7 +54,7 @@ class SearchViewBody extends StatelessWidget {
                     ),
                   ),
                 ),
-                TestListView(),
+                ListViewPopular(),
               ],
             ),
           ),
