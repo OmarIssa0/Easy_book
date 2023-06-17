@@ -1,12 +1,17 @@
 import 'package:easy_book/core/utils/app_routter.dart';
 import 'package:easy_book/core/utils/color_app.dart';
 import 'package:easy_book/core/utils/styles.dart';
+import 'package:easy_book/features/home/data/models/book_model/book_model.dart';
+import 'package:easy_book/features/home/presentation/views/widgets/book_rating.dart';
+import 'package:easy_book/features/home/presentation/views/widgets/custom_image_book.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class ListViewPopularBook extends StatelessWidget {
-  const ListViewPopularBook({super.key});
+  const ListViewPopularBook({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +38,15 @@ class ListViewPopularBook extends StatelessWidget {
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                  child: Image.asset(
-                    'assets/images/product_cm3yDQc2KdBpIadKmwNGTQ0UaAXHeb.jpg',
-                    width: 65,
-                    height: 86,
-                  ),
+                  child: CustomImageBook(
+                      imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!),
+                  // Image.asset(
+                  //   'assets/images/product_cm3yDQc2KdBpIadKmwNGTQ0UaAXHeb.jpg',
+                  //   width: 65,
+                  //   height: 86,
+                  // ),
                 ),
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.height * .17,
                   height: 68.h,
                   child: Column(
@@ -47,7 +54,7 @@ class ListViewPopularBook extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'The Steal Like An Artist',
+                        bookModel.volumeInfo!.title!,
                         style: Styles.kTextStyle14.copyWith(
                           fontWeight: FontWeight.w700,
                           color: ColorApp.kColorText,
@@ -59,7 +66,7 @@ class ListViewPopularBook extends StatelessWidget {
                         height: 3.h,
                       ),
                       Text(
-                        'Austin Kleon',
+                        bookModel.volumeInfo!.authors![0],
                         style: Styles.kTextStyle10.copyWith(
                           color: ColorApp.kColorText,
                         ),
@@ -67,29 +74,15 @@ class ListViewPopularBook extends StatelessWidget {
                       SizedBox(
                         height: 5.h,
                       ),
-                      Row(
-                        children: [
-                          Text(
-                            "5.0",
-                            style: Styles.kTextStyle8.copyWith(
-                              fontWeight: FontWeight.w700,
-                              color: const Color(0xffF24F09),
-                            ),
-                          ),
-                          Text(
-                            "| Based on 23k Reviews",
-                            style: Styles.kTextStyle8.copyWith(
-                              fontWeight: FontWeight.w100,
-                              color: ColorApp.kColorText,
-                            ),
-                          ),
-                        ],
+                      BookRating(
+                        rating: bookModel.volumeInfo!.averageRating ?? 0,
+                        count: bookModel.volumeInfo!.ratingsCount ?? 0,
                       ),
                       SizedBox(
                         height: 4.h,
                       ),
                       Text(
-                        r'$45.87',
+                        'Free',
                         style: Styles.kTextStyle10,
                       ),
                     ],

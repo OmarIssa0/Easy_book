@@ -1,12 +1,19 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_book/core/utils/app_routter.dart';
 import 'package:easy_book/core/utils/color_app.dart';
 import 'package:easy_book/core/utils/styles.dart';
+import 'package:easy_book/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class CardCustom extends StatelessWidget {
-  const CardCustom({super.key});
+  const CardCustom({
+    super.key,
+    this.bookModel,
+  });
+
+  final BookModel? bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +41,11 @@ class CardCustom extends StatelessWidget {
                 child: Material(
                   elevation: 10,
                   child: Image.asset('assets/images/Test_book.jpg'),
+                  // child: CachedNetworkImage(
+                  //   imageUrl: bookModel!.volumeInfo!.imageLinks!.thumbnail!,
+                  //   errorWidget: (context, url, error) =>
+                  //       const Icon(Icons.error),
+                  // ),
                 ),
               ),
               SizedBox(

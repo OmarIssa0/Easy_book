@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
             BlocProvider(
               create: (context) => NewsetBooksCubit(
                 getIt.get<HomeRepoImpl>(),
-              ),
+              )..fetchNewsetBooks(),
             ),
           ],
           child: MaterialApp.router(
