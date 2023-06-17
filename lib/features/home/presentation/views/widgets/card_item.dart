@@ -3,6 +3,7 @@ import 'package:easy_book/core/utils/app_routter.dart';
 import 'package:easy_book/core/utils/color_app.dart';
 import 'package:easy_book/core/utils/styles.dart';
 import 'package:easy_book/features/home/data/models/book_model/book_model.dart';
+import 'package:easy_book/features/home/presentation/views/widgets/custom_image_book.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -10,10 +11,10 @@ import 'package:go_router/go_router.dart';
 class CardCustom extends StatelessWidget {
   const CardCustom({
     super.key,
-    this.bookModel,
+    required this.bookModel,
   });
 
-  final BookModel? bookModel;
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +41,15 @@ class CardCustom extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
                 child: Material(
                   elevation: 10,
-                  child: Image.asset('assets/images/Test_book.jpg'),
+                  // child: Image.asset('assets/images/Test_book.jpg'),
                   // child: CachedNetworkImage(
-                  //   imageUrl: bookModel!.volumeInfo!.imageLinks!.thumbnail!,
+                  //   imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!,
                   //   errorWidget: (context, url, error) =>
                   //       const Icon(Icons.error),
                   // ),
+                  child: CustomImageBook(
+                    imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!,
+                  ),
                 ),
               ),
               SizedBox(
@@ -60,7 +64,8 @@ class CardCustom extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'The Psychology of Money',
+                        // 'The Psychology of Money',
+                        bookModel.volumeInfo!.title!,
                         style: Styles.kTextStyle14.copyWith(
                           fontWeight: FontWeight.w600,
                         ),
@@ -69,8 +74,11 @@ class CardCustom extends StatelessWidget {
                         height: 10.h,
                       ),
                       Text(
-                        "The psychology of money is the study of our behavior with money. Success with money isn't about knowledge, IQ or how good you are at math. It's about behavior, and everyone is prone to certain behaviors over others.",
+                        // "The psychology of money is the study of our behavior with money. Success with money isn't about knowledge, IQ or how good you are at math. It's about behavior, and everyone is prone to certain behaviors over others.",
+                        bookModel.volumeInfo!.description!,
                         style: Styles.kTextStyle8,
+                        maxLines: 4,
+                        overflow: TextOverflow.ellipsis,
                       ),
                       SizedBox(
                         height: 12.h,
