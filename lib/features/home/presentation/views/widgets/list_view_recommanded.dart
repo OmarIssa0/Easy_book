@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_book/core/utils/app_routter.dart';
 import 'package:easy_book/core/utils/widgets/custom_error_widget.dart';
 import 'package:easy_book/core/utils/widgets/custom_loading_indicator.dart';
@@ -51,17 +52,16 @@ class ItemBuilderRecommanded extends StatelessWidget {
       onTap: () {
         GoRouter.of(context).push(RouterApp.kDetailsView);
       },
-      child: AspectRatio(
-        aspectRatio: 2.6 / 3.5,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            image: DecorationImage(
-              fit: BoxFit.fill,
-              image: NetworkImage(
-                imageUrl,
-              ),
-            ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: AspectRatio(
+          aspectRatio: 2.6 / 3.5,
+          child: CachedNetworkImage(
+            imageUrl: imageUrl,
+            fit: BoxFit.fill,
+            errorWidget: (context, url, error) {
+              return const Icon(Icons.error);
+            },
           ),
         ),
       ),
