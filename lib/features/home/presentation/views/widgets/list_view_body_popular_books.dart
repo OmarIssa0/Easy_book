@@ -39,7 +39,8 @@ class ListViewPopularBook extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   child: CustomImageBook(
-                      imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!),
+                      imageUrl:
+                          bookModel.volumeInfo!.imageLinks?.thumbnail ?? ''),
                   // Image.asset(
                   //   'assets/images/product_cm3yDQc2KdBpIadKmwNGTQ0UaAXHeb.jpg',
                   //   width: 65,
@@ -66,7 +67,7 @@ class ListViewPopularBook extends StatelessWidget {
                         height: 3.h,
                       ),
                       Text(
-                        bookModel.volumeInfo!.authors![0],
+                        bookModel.volumeInfo!.authors?[0] ?? '',
                         style: Styles.kTextStyle10.copyWith(
                           color: ColorApp.kColorText,
                         ),

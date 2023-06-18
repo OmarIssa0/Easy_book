@@ -6,7 +6,7 @@ abstract class NewsetBooksState extends Equatable {
   @override
   List<Object> get props => [];
 
-  get books => null;
+  // get books => null;
 }
 
 class NewsetBooksInitial extends NewsetBooksState {}

@@ -1,5 +1,6 @@
 import 'package:easy_book/core/utils/color_app.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/styles.dart';
 
@@ -19,6 +20,9 @@ class BookRating extends StatelessWidget {
             fontWeight: FontWeight.w700,
             color: const Color(0xffF24F09),
           ),
+        ),
+        SizedBox(
+          width: 3.w,
         ),
         Text(
           "| Based on $count Reviews",

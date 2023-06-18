@@ -11,9 +11,11 @@ import 'package:go_router/go_router.dart';
 class CardCustom extends StatelessWidget {
   const CardCustom({
     super.key,
+    // required BookModel bookModel,
     required this.bookModel,
   });
 
+  // static BookModel bookModel = BookModel();
   final BookModel bookModel;
 
   @override
@@ -48,7 +50,8 @@ class CardCustom extends StatelessWidget {
                   //       const Icon(Icons.error),
                   // ),
                   child: CustomImageBook(
-                    imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!,
+                    imageUrl:
+                        bookModel.volumeInfo!.imageLinks?.thumbnail! ?? '',
                   ),
                 ),
               ),
@@ -66,6 +69,8 @@ class CardCustom extends StatelessWidget {
                       Text(
                         // 'The Psychology of Money',
                         bookModel.volumeInfo!.title!,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: Styles.kTextStyle14.copyWith(
                           fontWeight: FontWeight.w600,
                         ),

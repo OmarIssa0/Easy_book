@@ -43,14 +43,25 @@ class HomeViewBody extends StatelessWidget {
                       text: 'Book of The week',
                       color: ColorApp.kColorIcon,
                     ),
-                    BlocBuilder<NewsetBooksCubit, NewsetBooksState>(
+                    BlocConsumer<NewsetBooksCubit, NewsetBooksState>(
+                      listener: (context, state) {
+                        // bookModel = state.book;
+                      },
                       builder: (context, state) {
-                        return CardCustom(
-                          bookModel: state.books[4],
-                        );
+                        if (state is NewsetBooksSuccess) {
+                          return CardCustom(
+                            bookModel: state.books[4],
+                          );
+                          // },
+                        } else if (state is NewsetBooksFailure) {
+                          return CustomErrorWidget(
+                              errMessage: state.errMessage);
+                        } else {
+                          return const CustomLoadingIndicator();
+                        }
                       },
                     ),
-                    // const ListViewCardItem(),
+
                     SizedBox(
                       height: 45.h,
                     ),
@@ -83,39 +94,3 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
-
-// class ListViewCardItem extends StatelessWidget {
-//   const ListViewCardItem({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SizedBox(
-//       height: MediaQuery.of(context).size.height / .12,
-//       child: ListView.builder(
-//         itemBuilder: (context, index) {
-//           return BlocBuilder<NewsetBooksCubit, NewsetBooksState>(
-//             builder: (context, state) {
-//               if (state is NewsetBooksSuccess) {
-//                 return ListView.builder(
-//                   // physics: const NeverScrollableScrollPhysics(),
-//                   shrinkWrap: true,
-//                   itemCount: 0,
-//                   scrollDirection: Axis.vertical,
-//                   itemBuilder: (context, index) {
-//                     return CardCustom(
-//                       bookModel: state.books[0],
-//                     );
-//                   },
-//                 );
-//               } else if (state is NewsetBooksFailure) {
-//                 return CustomErrorWidget(errMessage: state.errMessage);
-//               } else {
-//                 return const CustomLoadingIndicator();
-//               }
-//             },
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }
