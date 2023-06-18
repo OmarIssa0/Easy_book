@@ -22,7 +22,10 @@ class CardCustom extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(RouterApp.kDetailsView);
+        GoRouter.of(context).push(
+          RouterApp.kDetailsView,
+          extra: bookModel,
+        );
       },
       child: Material(
         elevation: 10,

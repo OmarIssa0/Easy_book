@@ -3,7 +3,9 @@ import 'package:easy_book/features/details/presentation/views/widgets/info_book.
 import 'package:easy_book/features/details/presentation/views/widgets/info_news_image.dart';
 import 'package:easy_book/features/details/presentation/views/widgets/info_writing.dart';
 import 'package:easy_book/features/details/presentation/views/widgets/item_card_details.dart';
+import 'package:easy_book/features/details/presentation/views/widgets/similar_books_list_view.dart';
 import 'package:easy_book/features/home/presentation/views/widgets/custom_app_bar.dart';
+import 'package:easy_book/features/home/presentation/views/widgets/custom_image_book.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -38,6 +40,10 @@ class DetailsViewBody extends StatelessWidget {
                     height: 30.h,
                   ),
                   const InfoNewsImage(),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  const ListViewSimilar(),
                   SizedBox(
                     height: 16.h,
                   ),
