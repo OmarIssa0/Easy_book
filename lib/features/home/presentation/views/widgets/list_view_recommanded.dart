@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_book/core/utils/app_routter.dart';
 import 'package:easy_book/core/utils/widgets/custom_error_widget.dart';
 import 'package:easy_book/core/utils/widgets/custom_loading_indicator.dart';
-import 'package:easy_book/features/home/data/models/book_model/book_model.dart';
 import 'package:easy_book/features/home/presentation/manger/featured_books_cubit/featured_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -54,7 +53,7 @@ class ItemBuilderRecommanded extends StatelessWidget {
         GoRouter.of(context).push(RouterApp.kDetailsView);
       },
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(10),
         child: AspectRatio(
           aspectRatio: 2.6 / 3.5,
           child: CachedNetworkImage(
