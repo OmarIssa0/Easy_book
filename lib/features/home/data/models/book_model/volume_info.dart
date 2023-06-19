@@ -16,8 +16,8 @@ class VolumeInfo extends Equatable {
   final dynamic pageCount;
   final String? printType;
   final List<String>? categories;
-  final dynamic averageRating;
-  final dynamic ratingsCount;
+  final num? averageRating;
+  final num? ratingsCount;
   final String? maturityRating;
   final bool? allowAnonLogging;
   final String? contentVersion;

@@ -1,10 +1,13 @@
 import 'package:easy_book/core/utils/color_app.dart';
 import 'package:easy_book/core/utils/styles.dart';
+import 'package:easy_book/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class InfoWriting extends StatelessWidget {
-  const InfoWriting({super.key});
+  const InfoWriting({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +59,8 @@ class InfoWriting extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Morgan Housel',
+                  // 'Morgan Housel',
+                  bookModel.volumeInfo?.authors![0] ?? '',
                   style: Styles.kTextStyle18.copyWith(
                     color: ColorApp.kColorIcon,
                   ),

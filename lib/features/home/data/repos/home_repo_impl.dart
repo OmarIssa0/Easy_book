@@ -13,8 +13,10 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
     try {
       var data = await apiService.get(
-          endPoint:
-              'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science');
+        endPoint:
+            'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science',
+        // 'volumes?Filtering=free-ebooks&q=subject:it',
+      );
 
       List<BookModel> books = [];
       for (var item in data['items']) {
@@ -39,11 +41,20 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       var data = await apiService.get(
-          endPoint: 'volumes?Filtering=free-ebooks&q=subject:programming');
+        endPoint:
+            // 'volumes?Filtering=free-ebooks&q=subject:it',
+            'volumes?Filtering=free-ebooks&Sorting=newest &q=Programming',
+      );
 
       List<BookModel> books = [];
       for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+        try {
+          books.add(BookModel.fromJson(item));
+        } on Exception catch (e) {
+          books.add(BookModel.fromJson(item));
+          // print(item);
+        }
+        // books.add(BookModel.fromJson(item));
       }
       return right(books);
     } catch (e) {
@@ -60,8 +71,10 @@ class HomeRepoImpl implements HomeRepo {
       {required String category}) async {
     try {
       var data = await apiService.get(
-          endPoint:
-              'volumes?Filtering=free-ebooks&Sorting=newest&Sorting=relevance &q=Programming');
+        endPoint:
+            'volumes?Filtering=free-ebooks&Sorting=newest&Sorting=relevance &q=Programming',
+        // 'volumes?Filtering=free-ebooks&q=subject:it',
+      );
 
       List<BookModel> books = [];
       for (var item in data['items']) {

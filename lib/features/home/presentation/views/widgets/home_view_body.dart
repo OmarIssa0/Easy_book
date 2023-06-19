@@ -2,6 +2,7 @@ import 'package:easy_book/core/utils/assets.dart';
 import 'package:easy_book/core/utils/color_app.dart';
 import 'package:easy_book/core/utils/styles.dart';
 import 'package:easy_book/features/home/data/models/book_model/book_model.dart';
+import 'package:easy_book/features/home/data/models/book_model/volume_info.dart';
 import 'package:easy_book/features/home/presentation/views/widgets/card_item.dart';
 import 'package:easy_book/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:easy_book/features/home/presentation/views/widgets/list_view_body_popular_books.dart';
@@ -72,7 +73,9 @@ class HomeViewBody extends StatelessWidget {
                     SizedBox(
                       height: 24.h,
                     ),
-                    const ListViewRecommanded(),
+                    const ListViewRecommanded(
+                        // bookModel: bookModel,
+                        ),
                     SizedBox(
                       height: 100.h,
                     ),

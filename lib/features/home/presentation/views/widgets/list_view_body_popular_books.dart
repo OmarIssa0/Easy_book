@@ -17,7 +17,7 @@ class ListViewPopularBook extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(RouterApp.kDetailsView);
+        GoRouter.of(context).push(RouterApp.kDetailsView, extra: bookModel);
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -76,8 +76,9 @@ class ListViewPopularBook extends StatelessWidget {
                         height: 5.h,
                       ),
                       BookRating(
-                        rating: bookModel.volumeInfo!.averageRating ?? 0,
-                        count: bookModel.volumeInfo!.ratingsCount ?? 0,
+                        rating:
+                            bookModel.volumeInfo!.averageRating?.toInt() ?? 0,
+                        count: bookModel.volumeInfo!.ratingsCount?.toInt() ?? 0,
                       ),
                       SizedBox(
                         height: 4.h,
