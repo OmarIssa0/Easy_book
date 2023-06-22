@@ -1,17 +1,10 @@
 import 'package:easy_book/core/utils/color_app.dart';
 import 'package:easy_book/core/utils/styles.dart';
 import 'package:easy_book/features/home/presentation/manger/search_books_cubit/search_books_cubit.dart';
-import 'package:easy_book/features/home/presentation/views/widgets/list_view_body_popular_books.dart';
-import 'package:easy_book/features/home/presentation/views/widgets/list_view_popular.dart';
 import 'package:easy_book/features/search/presentation/view/widgets/list_view_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../../core/utils/widgets/custom_error_widget.dart';
-import '../../../../../core/utils/widgets/custom_loading_indicator.dart';
-import '../../../../home/data/models/book_model/book_model.dart';
-import '../../../../home/presentation/manger/featured_books_cubit/featured_books_cubit.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({
@@ -86,7 +79,11 @@ class SearchViewBody extends StatelessWidget {
                   ),
                 ),
 
-                const ListViewDataSearch()
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 24),
+                  child: const ListViewDataSearch(),
+                )
 
                 // ListViewPopular(),
               ],

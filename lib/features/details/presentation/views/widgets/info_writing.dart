@@ -58,19 +58,24 @@ class InfoWriting extends StatelessWidget {
                     color: const Color(0xff9091A0),
                   ),
                 ),
-                Text(
-                  // 'Morgan Housel',
-                  bookModel.volumeInfo?.authors![0] ?? '',
-                  style: Styles.kTextStyle18.copyWith(
-                    color: ColorApp.kColorIcon,
+                Container(
+                  width: 200.w,
+                  child: Text(
+                    // 'Morgan Housel',
+                    bookModel.volumeInfo?.authors?[0] ?? 'Author Not Found',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: Styles.kTextStyle18.copyWith(
+                      color: ColorApp.kColorIcon,
+                    ),
                   ),
                 ),
-                Text(
-                  'Best Seller of New York Times',
-                  style: Styles.kTextStyle8.copyWith(
-                    color: const Color(0xff9091A0),
-                  ),
-                ),
+                // Text(
+                //   // 'Best Seller of New York Times',
+                //   style: Styles.kTextStyle8.copyWith(
+                //     color: const Color(0xff9091A0),
+                //   ),
+                // ),
               ],
             ),
             const Spacer(),

@@ -19,14 +19,15 @@ class CustomAppBarHomeView extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.keyboard_backspace,
-              size: 25,
-              color: color,
-            ),
-          ),
+          // IconButton(
+          //   onPressed: () {},
+          //   icon: Icon(
+          //     Icons.keyboard_backspace,
+          //     size: 25,
+          //     color: color,
+          //   ),
+          // ),
+
           Text(
             text,
             style: Styles.kTextStyle20,

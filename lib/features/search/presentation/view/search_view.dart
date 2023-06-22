@@ -17,7 +17,7 @@ class _SearchViewState extends State<SearchView> {
   @override
   void initState() {
     BlocProvider.of<SearchBooksCubit>(context).fetchSearchBooks(
-      value: widget.bookModel?.searchInfo?.textSnippet![0] ?? '',
+      value: widget.bookModel?.searchInfo?.textSnippet![0] ?? 'Not Found',
     );
     super.initState();
   }
