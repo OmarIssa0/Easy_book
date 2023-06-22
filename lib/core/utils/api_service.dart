@@ -11,4 +11,10 @@ class ApiService {
 
     return response.data;
   }
+
+  Future<Map<String, dynamic>> getValue({required String value}) async {
+    var valueData = await _dio.get("$_baseUrl$value");
+
+    return valueData.data;
+  }
 }

@@ -1,6 +1,7 @@
 import 'package:easy_book/core/utils/app_routter.dart';
 import 'package:easy_book/core/utils/color_app.dart';
 import 'package:easy_book/core/utils/styles.dart';
+import 'package:easy_book/features/details/presentation/views/widgets/details_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -33,6 +34,10 @@ class CustomAppBarHomeView extends StatelessWidget {
           IconButton(
             onPressed: () {
               GoRouter.of(context).push(RouterApp.kSearchView);
+              // showSearch(
+              //   context: context,
+              //   delegate: DataSearch(),
+              // );
             },
             icon: Icon(
               Icons.search,

@@ -2,6 +2,7 @@ import 'package:easy_book/core/utils/service_locatro.dart';
 import 'package:easy_book/features/details/presentation/views/details_view.dart';
 import 'package:easy_book/features/home/data/models/book_model/book_model.dart';
 import 'package:easy_book/features/home/data/repos/home_repo_impl.dart';
+import 'package:easy_book/features/home/presentation/manger/search_books_cubit/search_books_cubit.dart';
 import 'package:easy_book/features/home/presentation/manger/similar_books_cubit/similar_books_cubit.dart';
 import 'package:easy_book/features/home/presentation/views/home_view.dart';
 import 'package:easy_book/features/onboard/presentation/views/onboard_views.dart';
@@ -43,7 +44,14 @@ class RouterApp {
       ),
       GoRoute(
         path: kSearchView,
-        builder: (context, state) => const SearchView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => SearchBooksCubit(
+            getIt.get<HomeRepoImpl>(),
+          ),
+          child: SearchView(
+              // bookModel: state.extra as BookModel?,
+              ),
+        ),
       ),
     ],
   );

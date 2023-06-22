@@ -51,8 +51,8 @@ class ItemImageDetailsView extends StatelessWidget {
               Opacity(
                 opacity: .5,
                 child: Text(
-                  "The psychology of money is the study\n of our behavior with money. Success with money\nisn't about knowledge, IQ or how \n good you are at math. It's about behavior,\n and everyone is prone to certain behaviors over others.",
-                  // bookModel.volumeInfo!.authors![0],
+                  // "The psychology of money is the study\n of our behavior with money. Success with money\nisn't about knowledge, IQ or how \n good you are at math. It's about behavior,\n and everyone is prone to certain behaviors over others.",
+                  " Content Version : ${bookModel.volumeInfo?.contentVersion! ?? ''}\n Published Date : ${bookModel.volumeInfo?.publishedDate ?? ''}\n Language : ${bookModel.volumeInfo?.language ?? ''}\n ",
                   maxLines: 3,
                   overflow: TextOverflow.clip,
                   style: Styles.kTextStyle8.copyWith(
